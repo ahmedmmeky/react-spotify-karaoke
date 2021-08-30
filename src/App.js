@@ -3,7 +3,7 @@ import Login from "./Login";
 import Dashboard from "./Dashboard";
 
 const code = new URLSearchParams(window.location.search).get("code");
-//var redirect_uri = "http://localhost:3000/callback";
+
 function App() {
   return code ? <Dashboard code={code} /> : <Login />;
 }
