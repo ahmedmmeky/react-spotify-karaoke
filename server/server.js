@@ -9,9 +9,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.send("Hello world");
-});
+app.set("port", process.env.PORT || 3001);
 
 app.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken;
@@ -66,4 +64,4 @@ app.get("/lyrics", async (req, res) => {
   //console.log(lyrics);
 });
 
-app.listen(process.env.PORT || 3001, () => console.log("server has started"));
+app.listen(process.env.port || 3001);
