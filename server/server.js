@@ -4,10 +4,14 @@ const cors = require("cors");
 const SpotifyWebApi = require("spotify-web-api-node");
 const lyricsFinder = require("lyrics-finder");
 
+const serverless = require("serverless-http");
+
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+module.exports.handler = serverless(app);
 
 app.set("port", process.env.PORT || 3001);
 
